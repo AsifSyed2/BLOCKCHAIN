@@ -1,0 +1,21 @@
+pragma solidity ^0.8.0;
+contract calculator{
+    uint public num1;
+    uint public num2;
+    function getval(uint a,uint b)public{
+        num1 = a;
+        num2 = b;
+    }
+    function add()public view returns(uint){
+        return num1+num2;
+    }
+    function sub(uint num3,uint num4)pure public returns(uint){
+        return num3-num4;
+    }
+    function mul()public view returns(uint){
+        return num1*num2;
+    }
+    function div()public view returns(uint){
+        return num1/num2;
+    }
+}
