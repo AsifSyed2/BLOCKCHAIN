@@ -1,0 +1,37 @@
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
+contract asif{
+    address public constant add_addr=0x5B38Da6a701c568545dCfcB03FcB875f56beddC4;
+    address public constant sub_addr=0xAb8483F64d9C6d1EcF9b849Ae677dD3315835cb2;
+    address public constant mul_addr=0x4B20993Bc481177ec7E8f571ceCaE8A9e22C02db;
+    address public constant div_addr=0x78731D3Ca6b7E34aC0F824c42a7cC18A495cabaB;
+    modifier onlyaddaddress(){
+        require(msg.sender == add_addr, "caller is not allowed to perform addition");
+        _;
+    }
+    modifier onlysubaddress(){
+        require(msg.sender == sub_addr,"caller is not allowed to perform subtraction");
+        _;
+    }
+    modifier onlymultification(){
+        require(msg.sender == mul_addr,"caller is not allowed to perform multification");
+        _;
+    }
+    modifier onlydiv(){
+        require(msg.sender == div_addr,"caller is noot allowed to perform division");
+        _;
+    }
+    function add(uint a,uint b)public view onlyaddaddress returns(uint){
+        return a+b;
+    }
+
+    function sub(uint a,uint b)public view onlysubaddress returns(uint){
+        return a-b;
+    }
+    function mul(uint a,uint b)public view onlymultification returns(uint){
+        return a*b;
+    }
+    function div(uint a,uint b)public view onlydiv returns(uint){
+        return a/b;
+    }
+}
